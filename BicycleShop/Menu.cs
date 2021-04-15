@@ -37,7 +37,7 @@ namespace BicycleShop
                 if (LoggedIn == false) {
                     Console.WriteLine("Skriv ditt användarnamn: (Correct username is'admin')");
                     string userInput = Console.ReadLine();
-                    Console.WriteLine("Skriv ditt lösenord: (Correct parrword is 'Felipebordefåvg'(Small f))");
+                    Console.WriteLine("Skriv ditt lösenord: (Correct parrword is 'felipebordefåvg'(Small f))");
                     string passInput = Console.ReadLine();
                     Console.WriteLine();
                     if (this.username.ToLower() == userInput.ToLower() && this.password.ToLower() == passInput.ToLower())
@@ -50,6 +50,13 @@ namespace BicycleShop
                 {
                    Program.adminManeger.AdminMenu();
                 }
+                if(this.LoggedIn == false)
+            {
+                Console.Clear();
+                Console.WriteLine("!!!!!!Fel lösen eller användarnamn försök igen!!!!! \n");
+                MainMenu();
+                
+            }
 
             this.MainMenu();
 
