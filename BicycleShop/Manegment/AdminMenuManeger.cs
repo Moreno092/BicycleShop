@@ -15,7 +15,7 @@ namespace BicycleShop.Controllers
             Console.WriteLine("Press 1 to add customer ");
             Console.WriteLine("Press 2 to delete customer");
             Console.WriteLine("Press 3 to create order");
-            Console.WriteLine("Press 4 to update customer");
+            Console.WriteLine("Press 4 to update customer address");
             Console.WriteLine("Press 8 to im implement product context ");
             Console.WriteLine("Press 9 to implement Color context ");
             
