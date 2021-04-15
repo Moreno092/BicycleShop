@@ -40,16 +40,20 @@ namespace BicycleShop.Controllers
         {
             using (var context = new BicycleContext())
             {
-                var customer = new Customer(firstname,  lastName,  email,  phonenumber, address);
+                var CustomerAdd = new Customer(firstname,  lastName,  email,  phonenumber, address);
 
-                context.Customers.Add(customer);
-
+                context.Customers.Add(CustomerAdd);
+                if (CustomerAdd == null)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Add Customer faild");
+                    RemoveCustomer();
+                }
                 context.SaveChanges();
 
-                customerId = customer.Customer_Id;
+                customerId = CustomerAdd.Customer_Id;
                 return true;
             }
-
 
             customerId = 0;
             return false;
@@ -72,11 +76,9 @@ namespace BicycleShop.Controllers
                 context.SaveChanges();
                 
             }
-
-
         }
         //Uppdaterar Kunder
-        public void UpdateCustomer()
+        public void UpdateCustomerAdress()
         {
 
             Console.WriteLine("Type the Customer ID for update");
@@ -90,42 +92,26 @@ namespace BicycleShop.Controllers
             {
 
                 var CustomerToBeUppdated = context.Customers.FirstOrDefault(b => b.Customer_Id == _Customer_);
-                
+
+
               
-                
                 if (CustomerToBeUppdated != null)
                 {
                     CustomerToBeUppdated.Address = address;                 
                     context.Update(CustomerToBeUppdated);
                     context.SaveChanges();
-                    UpdateCustomer();
+                    UpdateCustomerAdress();
                 }
-                if (address == null)
+                if (CustomerToBeUppdated == null)
                 {
                     Console.Clear();
                     Console.WriteLine("You have entered an Id that doesn't exist, try again");
                 }
-                
+
+
 
             }
-
-            //Console.WriteLine("Enter the Customer ID you want to Update");
-
-            //int customerIUpdate = Convert.ToInt32(Console.ReadLine());
-            //using (var context = new BicycleContext())
-            //{
-            //    var customerIUpdate = context.Customers.Find(customerIUpdate);
-            //    if (customerIUpdate == null)
-            //    {
-            //        Console.Clear();
-            //        Console.WriteLine("You have entered an Id that doesn't exist, try again");
-            //        UpdateCustomer();
-            //    }
-            //    context.Customers.Update(customerIUpdate);
-            //    context.SaveChanges();
-            //}
         }
-
             //Hämtar information ifrån utvald tabell 
             public Product GetProductById(int id)
         {
@@ -134,6 +120,7 @@ namespace BicycleShop.Controllers
             Console.WriteLine("ID: " + returnProduct.Product_id + ", Name: " + returnProduct.BicycleDesign + ", Price: " + returnProduct.Price + ", TireSize: " + returnProduct.TireSize + ", NumberOfTires: " + returnProduct.NumberOfTires + ", Material: " + returnProduct.Material + ", Color: " + returnProduct.Colors_ID);
             return returnProduct;
         }
+        //Gjort en lista på alla produkter som finns i databasen
         public void ProductsTable()
         {
             using (var result = new BicycleContext())
@@ -152,10 +139,6 @@ namespace BicycleShop.Controllers
                 
             }
         }
-
-
-
-
     }
 
     }

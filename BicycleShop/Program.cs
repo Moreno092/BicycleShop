@@ -17,8 +17,9 @@ namespace BicycleShop
         public static ColorImplement colorManeger = new ColorImplement();
         public static OrderManeger ordermaneger = new OrderManeger();
         public static ProductImplement productImplement = new ProductImplement();
-        public static AdminManeger adminManeger = new AdminManeger();
+        public static AdminMenuManeger adminManeger = new AdminMenuManeger();
         public static CustomerMenuManeger customerMenuManeger = new CustomerMenuManeger();
+        
         static void Main(string[] args)
         {
            // productImplement.Addinformarion();

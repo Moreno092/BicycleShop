@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BicycleShop.Controllers
 {
-    class AdminManeger
+    class AdminMenuManeger
     {
         public int customerId;
         
@@ -15,6 +15,7 @@ namespace BicycleShop.Controllers
             Console.WriteLine("Press 1 to add customer ");
             Console.WriteLine("Press 2 to delete customer");
             Console.WriteLine("Press 3 to create order");
+            Console.WriteLine("Press 4 to update customer");
             Console.WriteLine("Press 8 to im implement product context ");
             Console.WriteLine("Press 9 to implement Color context ");
             
@@ -53,7 +54,7 @@ namespace BicycleShop.Controllers
 
                 case "3":
                     Program.productmaneger.ProductsTable();
-                    Console.WriteLine("What bike do you wanna rent, choose between 1-5 ");
+                    Console.WriteLine("What bike do you wanna channge to customer, choose between 1-5 ");
                     int Product_id = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("choose customer ");
                     customerId = Convert.ToInt32(Console.ReadLine());
@@ -63,8 +64,8 @@ namespace BicycleShop.Controllers
                     Console.WriteLine("du har nu hyrt " + Product_id);
                     string roduct_id = Console.ReadLine();
                     break;
-                case "6":
-                    Program.productmaneger.UpdateCustomer();
+                case "4":
+                    Program.productmaneger.UpdateCustomerAdress();
                     break;
                 case "8":
                     Program.productImplement.Addinformarion();

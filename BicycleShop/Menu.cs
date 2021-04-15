@@ -13,13 +13,7 @@ namespace BicycleShop
     {
         public bool LoggedIn = false;
         public string username = "admin";
-        public string password = "Felipebordefåvg";
-
-
-
-
-
-        //public int id;
+        public string password = "felipebordefåvg";
        
         public void MainMenu()
         {
